@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "kind": "event_trigger",
+  "block_version": "0.1.0",
+  "maintained_by": "HackInvent",
+  "source": {
+    "algorithm": "block-source-v1",
+    "sha256": "9c79f6f5dafedd99ea4fc98254ecf793ac967a106fd5525bee0f82d50dca6238"
+  },
+  "bloxsmith_compatibility": [
+    "1.0.9"
+  ],
+  "tested_with_bloxsmith": "1.0.9",
+  "validations": [
+    {
+      "bloxsmith_version": "1.0.9",
+      "framework_commit": "f1a87f6369d2acfb8be41d23ea849384cd461c86",
+      "framework_source_sha256": "66e36a13fd9a23a0a0576ec81552d6e479671db6db9b8692cc7486c5aac4f3b8",
+      "tested_at": "2026-10-04T13:18:12.291136+00:00",
+      "status": "passed",
+      "installation_mode": "bundled",
+      "suite_paths": [
+        "tests/F5.01_event_trigger.py",
+        "tests/F5.02_event_trigger_runtime.py",
+        "tests/F8.01_event_trigger_ui.py"
+      ],
+      "suite_count": 3,
+      "report_sha256": "d1741553f3ea7c2622e87047777f2c538908b4f3c8fb124481688a0bbf6bf077"
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+[
+  {
+    "key": "mode",
+    "type": "select",
+    "options": [
+      "interval",
+      "daily",
+      "folder"
+    ],
+    "help": "Choose one source. Active Runtime starts listening at Run; One Shot only previews.",
+    "label": [
+      "Source mode",
+      "Mode de source"
+    ]
+  },
+  {
+    "key": "interval_sec",
+    "type": "integer",
+    "min": 1,
+    "max": 86400,
+    "modes": "interval",
+    "help": "First tick after this delay. Missed ticks are coalesced, not replayed.",
+    "label": [
+      "Interval (s)",
+      "Intervalle (s)"
+    ]
+  },
+  {
+    "key": "daily_time",
+    "modes": "daily",
+    "help": "24-hour HH:MM. Nonexistent DST times are skipped; repeated times fire once.",
+    "label": [
+      "Local time",
+      "Heure locale"
+    ]
+  },
+  {
+    "key": "timezone",
+    "modes": "daily",
+    "help": "IANA timezone, for example UTC or Europe/Paris; never inferred from the browser.",
+    "label": [
+      "Time zone",
+      "Fuseau horaire"
+    ]
+  },
+  {
+    "key": "weekdays",
+    "type": "json",
+    "modes": "daily",
+    "rows": 2,
+    "help": "Selected days: 0 Monday through 6 Sunday. At least one day.",
+    "label": [
+      "Weekdays",
+      "Jours de la semaine"
+    ]
+  },
+  {
+    "key": "watch_directory",
+    "type": "directory",
+    "modes": "folder",
+    "help": "Existing local directory. Direct files only; symlinks and subdirectories are not followed.",
+    "label": [
+      "Watch directory",
+      "Dossier à surveiller"
+    ]
+  },
+  {
+    "key": "pattern",
+    "modes": "folder",
+    "help": "Filename pattern such as *.pdf. No path separators or recursive traversal.",
+    "label": [
+      "Filename pattern",
+      "Motif des fichiers"
+    ]
+  },
+  {
+    "key": "stable_sec",
+    "type": "integer",
+    "min": 1,
+    "max": 300,
+    "modes": "folder",
+    "help": "Unchanged size and timestamps for this many seconds, observed at least twice.",
+    "label": [
+      "Stability delay (s)",
+      "Délai de stabilité (s)"
+    ]
+  },
+  {
+    "key": "include_existing",
+    "type": "boolean",
+    "modes": "folder",
+    "help": "At Run only, emit current matching files after stability. Resume never replays the baseline.",
+    "label": [
+      "Include files present at Run",
+      "Inclure les fichiers présents au Run"
+    ]
+  },
+  {
+    "key": "start_paused",
+    "type": "boolean",
+    "help": "Wait for a data command {action: resume}; no hidden UI-to-runtime channel.",
+    "label": [
+      "Start paused",
+      "Démarrer en pause"
+    ]
+  },
+  {
+    "key": "payload",
+    "type": "json",
+    "advanced": true,
+    "rows": 3,
+    "help": "Static JSON object attached to events, up to 4 KiB. No secrets or executable expressions.",
+    "label": [
+      "Event payload",
+      "Charge utile"
+    ]
+  },
+  {
+    "key": "poll_sec",
+    "type": "integer",
+    "advanced": true,
+    "min": 1,
+    "max": 60,
+    "modes": "folder",
+    "help": "Time between directory snapshots. Pause and Stop remain checked every 100 ms.",
+    "label": [
+      "Polling interval (s)",
+      "Intervalle de surveillance (s)"
+    ]
+  },
+  {
+    "key": "max_entries",
+    "type": "integer",
+    "advanced": true,
+    "min": 1,
+    "max": 10000,
+    "modes": "folder",
+    "help": "Maximum directory entries examined. Exceeding the bound pauses the source with an explicit error.",
+    "label": [
+      "Directory entry limit",
+      "Limite d’entrées du dossier"
+    ]
+  },
+  {
+    "key": "max_pending",
+    "type": "integer",
+    "advanced": true,
+    "min": 1,
+    "max": 128,
+    "help": "Bounded local event queue. Overflow pauses detection and reports rejected events.",
+    "label": [
+      "Pending event limit",
+      "Limite d’événements en attente"
+    ]
+  },
+  {
+    "key": "emit_per_sec",
+    "type": "integer",
+    "advanced": true,
+    "min": 1,
+    "max": 10,
+    "help": "Maximum graph publications per second; no burst catch-up after pauses.",
+    "label": [
+      "Publication rate (/s)",
+      "Cadence de publication (/s)"
+    ]
+  }
+]
